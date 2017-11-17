@@ -1,5 +1,5 @@
 {
-  "name": "GraphQLDemo",
+  "name": "graphql-demo",
   "version": "",
   "main": "server.js",
   "scripts": {
