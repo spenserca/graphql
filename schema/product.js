@@ -7,7 +7,7 @@ let product = new GraphQLObjectType({
     fields: () => ({
         id: { type: new GraphQLNonNull(GraphQLInt) },
         name: { type: new GraphQLNonNull(GraphQLString) },
-        imageUrl: { type: new GraphQLNonNull(GraphQLString) },
+        imageURL: { type: new GraphQLNonNull(GraphQLString) },
         price: { type: new GraphQLNonNull(GraphQLFloat) }
     })
 });
