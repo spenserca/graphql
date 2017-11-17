@@ -1,20 +1,13 @@
 'use strict';
 
-let { GraphQLObjectType, GraphQLInt, GraphQLList } = require('graphql/type');
+const { GraphQLObjectType, GraphQLInt, GraphQLList, GraphQLNonNull } = require('graphql/type');
+const lineItem = require('./lineItem');
 
-let lineItem = require('./lineItem');
-
-let cart = new GraphQLObjectType({
-    name: 'cart',
+const cart = new GraphQLObjectType({
+    name: 'Cart',
     fields: () => ({
-        id: {
-            type: (GraphQLInt),
-            resolve: (cart) => cart.id
-        },
-        lineItems: {
-            type: (GraphQLList(lineItem)),
-            resolve: (cart) => cart.lineItems
-        }
+        id: { type: new GraphQLNonNull(GraphQLInt) },
+        lineItems: { type: new GraphQLList(lineItem) }
     })
 });
 

@@ -1,8 +1,8 @@
 'use strict';
 
-let { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLFloat, GraphQLNonNull } = require('graphql/type');
+const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLFloat, GraphQLNonNull } = require('graphql/type');
 
-let product = new GraphQLObjectType({
+const product = new GraphQLObjectType({
     name: 'Product',
     fields: () => ({
         id: { type: new GraphQLNonNull(GraphQLInt) },

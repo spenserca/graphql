@@ -1,22 +1,13 @@
 'use strict';
 
-let { GraphQLObjectType, GraphQLInt } = require('graphql/type');
+const { GraphQLObjectType, GraphQLInt, GraphQLNonNull } = require('graphql/type');
 
-let lineItem = new GraphQLObjectType({
-    name: 'lineItem',
+const lineItem = new GraphQLObjectType({
+    name: 'LineItem',
     fields: () => ({
-        id: {
-            type: (GraphQLInt),
-            resolve: (lineItem) => lineItem.id
-        },
-        productId: {
-            type: (GraphQLInt),
-            resolve: (lineItem) => lineItem.productId
-        },
-        quantity: {
-            type: (GraphQLInt),
-            resolve: (lineItem) => lineItem.quantity
-        }
+        id: { type: new GraphQLNonNull(GraphQLInt) },
+        productId: { type: new GraphQLNonNull(GraphQLInt) },
+        quantity: { type: new GraphQLNonNull(GraphQLInt) }
     })
 });
 

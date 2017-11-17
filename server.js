@@ -14,7 +14,7 @@ const schema = require('./schema');
 //   },
 // };
 
-let port = 3000;
+const port = 3000;
 let app = express();
 app.use('/', graphqlHTTP({
   schema: schema,
