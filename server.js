@@ -1,24 +1,24 @@
 'use strict';
 
-var express = require('express');
-var graphqlHTTP = require('express-graphql');
-var { buildSchema } = require('graphql');
+const express = require('express');
+const graphqlHTTP = require('express-graphql');
+const { buildSchema } = require('graphql');
 
 // Import our schema to use
-var schema = require('./schema');
+const schema = require('./schema');
 
 // The root provides a resolver function for each API endpoint
-var root = {
-  hello: () => {
-    return 'Hello world!';
-  },
-};
+// let root = {
+//   hello: () => {
+//     return 'Hello world!';
+//   },
+// };
 
-var app = express();
-app.use('/graphql', graphqlHTTP({
+let port = 3000;
+let app = express();
+app.use('/', graphqlHTTP({
   schema: schema,
-  rootValue: root,
   graphiql: true,
 }));
-app.listen(4000);
-console.log('Running a GraphQL API server at localhost:4000/graphql');
+app.listen(port);
+console.log(`Running a GraphQL API server at localhost:${port}/`);

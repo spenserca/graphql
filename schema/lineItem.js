@@ -1,8 +1,8 @@
 'use strict';
 
-var { GraphQLObjectType, GraphQLInt } = require('graphql/type');
+let { GraphQLObjectType, GraphQLInt } = require('graphql/type');
 
-var lineItem = new GraphQLObjectType({
+let lineItem = new GraphQLObjectType({
     name: 'lineItem',
     fields: () => ({
         id: {

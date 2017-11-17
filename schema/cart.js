@@ -1,10 +1,10 @@
 'use strict';
 
-var { GraphQLObjectType, GraphQLInt, GraphQLList } = require('graphql/type');
+let { GraphQLObjectType, GraphQLInt, GraphQLList } = require('graphql/type');
 
-var lineItem = require('./lineItem');
+let lineItem = require('./lineItem');
 
-var cart = new GraphQLObjectType({
+let cart = new GraphQLObjectType({
     name: 'cart',
     fields: () => ({
         id: {
