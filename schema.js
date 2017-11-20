@@ -4,15 +4,15 @@ const request = require('request-promise');
 const { GraphQLSchema } = require('graphql');
 const { GraphQLObjectType, GraphQLNonNull, GraphQLInt, GraphQLString, GraphQLList, GraphQLFloat } = require('graphql/type');
 
-const cart = new GraphQLObjectType({
+const cartType = new GraphQLObjectType({
     name: 'Cart',
     fields: () => ({
         id: { type: GraphQLInt },
-        lineItems: { type: new GraphQLList(lineItem) }
+        lineItems: { type: new GraphQLList(lineItemType) }
     })
 });
 
-const lineItem = new GraphQLObjectType({
+const lineItemType = new GraphQLObjectType({
     name: 'LineItem',
     fields: () => ({
         id: { type: new GraphQLNonNull(GraphQLInt) },
@@ -44,7 +44,7 @@ const RootType = new GraphQLObjectType({
     name: 'Root',
     fields: () => ({
         shoppingCart: {
-            type: cart,
+            type: cartType,
             resolve: function (a, { id }, c) {
                 return request({
                     uri: `http://localhost:5000/shopping-carts/${id}`,
