@@ -21,7 +21,7 @@ const lineItemType = new GraphQLObjectType({
             type: productType,
             resolve: (lineItem) => {
                 return request({
-                    uri: `http://localhost:8080/products/${lineItem.productId}`,
+                    uri: (lineItem && lineItem.productId) ? `http://localhost:8080/products/${lineItem.productId}` : 'http://localhost:8080/products',
                     json: true
                 });
             }
