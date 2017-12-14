@@ -47,7 +47,7 @@ const RootType = new GraphQLObjectType({
             type: cartType,
             resolve: function (a, { id }, c) {
                 return request({
-                    uri: `http://localhost:5000/shopping-carts/${id}`,
+                    uri: id ? `http://localhost:5000/shopping-carts/${id}` : 'http://localhost:5000/shopping-carts/',
                     json: true
                 });
             },
